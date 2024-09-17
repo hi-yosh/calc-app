@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('https://hi-yosh.github.io/calc-app/sw.js', { scope: 'https://hi-yosh.github.io/calc-app/' })})}
