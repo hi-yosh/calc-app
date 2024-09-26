@@ -17,10 +17,33 @@
     <meta name="twitter:title" content="おつり計算機" />
     <meta name="twitter:description" content="配達員のためのおつり計算機アプリです。Webページですのでホーム画面に追加して利用すると便利です。" />
     <meta name="twitter:image" content="https://hi-yosh.github.io/calc-app/512.png" />
-    <script type="module" crossorigin src="https://hi-yosh.github.io/calc-app/assets/index-rB8khF80.js"></script>
-    <link rel="stylesheet" crossorigin href="https://hi-yosh.github.io/calc-app/assets/index-D5A0tLUg.css">
+    <meta name="theme-color" content="00cccc">
+    <script type="module" crossorigin src="https://hi-yosh.github.io/calc-app/assets/index-DdymVvMG.js"></script>
+    <link rel="stylesheet" crossorigin href="https://hi-yosh.github.io/calc-app/assets/index-DuwL4QBp.css">
   <link rel="manifest" href="https://hi-yosh.github.io/calc-app/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="https://hi-yosh.github.io/calc-app/registerSW.js"></script></head>
   <body>
     <div id="root"></div>
+    <script>
+      function updateThemeColor(color) {
+        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+        if (metaThemeColor) {
+          metaThemeColor.setAttribute('content', color);
+        }
+      }
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        updateThemeColor('#333333');
+      } else {
+        updateThemeColor('##00cccc');
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const newColorScheme = e.matches ? 'dark' : 'light';
+        
+        if (newColorScheme === 'dark') {
+          updateThemeColor('#333333');
+        } else {
+          updateThemeColor('#00cccc');
+      }
+      });
+    </script>
   </body>
 </html>
